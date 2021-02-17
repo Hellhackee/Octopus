@@ -4764,9 +4764,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5463095324842291987}
   - component: {fileID: 5463095324842291984}
-  - component: {fileID: 7698607013004005973}
-  - component: {fileID: -3679726387124970993}
   - component: {fileID: 6377348030623778313}
+  - component: {fileID: -3679726387124970993}
+  - component: {fileID: 7698607013004005973}
   m_Layer: 0
   m_Name: Ink
   m_TagString: Untagged
@@ -4844,19 +4844,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7698607013004005973
-MonoBehaviour:
+--- !u!58 &6377348030623778313
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5463095324842291985}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dbcb65420502fa40af7ef78adaaddbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 5
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00065648556, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.088840365
 --- !u!50 &-3679726387124970993
 Rigidbody2D:
   serializedVersion: 4
@@ -4878,19 +4881,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6377348030623778313
-CircleCollider2D:
+--- !u!114 &7698607013004005973
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5463095324842291985}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00065648556, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.088840365
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dbcb65420502fa40af7ef78adaaddbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 4
