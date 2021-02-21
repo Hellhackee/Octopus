@@ -8,12 +8,15 @@ public class Attack : MonoBehaviour
     [SerializeField] private float _cooldown;
     [SerializeField] private Ink _ink;
     [SerializeField] private Transform _container;
+    [SerializeField] private float _timeToReload;
 
     private float _elapsedTime = 0f;
+    private float _elapsedTimeForReload = 0f;
 
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
+        _elapsedTimeForReload += Time.deltaTime;
 
         if (_elapsedTime >= _cooldown)
         {
@@ -21,10 +24,19 @@ public class Attack : MonoBehaviour
 
             foreach (AttackPoint point in _points)
             {
-                Ink ink = Instantiate(_ink, _container);
-                ink.transform.position = point.transform.position;
-                ink.SetDirection(point.Direction);
+                if (point.IsBusy == false)
+                {
+                    Ink ink = Instantiate(_ink, _container);
+                    ink.transform.position = point.transform.position;
+                    ink.SetDirection(point.Direction);
+                }
             }
+        }
+
+        if (_elapsedTimeForReload >= _timeToReload)
+        {
+            AttackPoint point = _points[Random.Range(0, _points.Length)];
+            point.ReloadGun();
         }
     }
 }

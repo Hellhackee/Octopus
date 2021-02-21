@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
-[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(PolygonCollider2D))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _damage;
@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _dieScaleMin;
     [SerializeField] private float _dieScaleMax;
     [SerializeField] private float _dieAlpha;
-
+    [SerializeField] private ParticleSystem _particleSystem;
+    
+    private Player _player;
     private Vector3 _direction;
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
-    private CircleCollider2D _circleCollider2D;
+    private PolygonCollider2D _collider;
     private Color _dieColor = new Color(Color.gray.r, Color.gray.g, Color.gray.b, 0.2f);
 
     private void OnValidate()
@@ -27,16 +29,23 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        _player = GameObject.FindObjectOfType<Player>();
+    }
+
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _circleCollider2D = GetComponent<CircleCollider2D>();
+        _collider = GetComponent<PolygonCollider2D>();
     }
 
     private void Update()
     {
         _rigidbody2D.velocity = _direction * _speed;
+        var direction = _player.transform.position;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,9 +71,10 @@ public class Enemy : MonoBehaviour
     {
         float dieScale = Random.Range(_dieScaleMin, _dieScaleMax);
 
+        _particleSystem.Play();
         _spriteRenderer.DOColor(_dieColor, 1f);
         transform.DOScale(dieScale, 1f);
         _direction = Vector2.up;
-        _circleCollider2D.enabled = false;
+        _collider.enabled = false;
     }
 }
