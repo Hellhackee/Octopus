@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-[RequireComponent(typeof(Animator))]
 public class Gun : MonoBehaviour
 {
-    private Animator _animator;
     [SerializeField] private AttackPoint _point;
     [SerializeField] private float _timeForGunBusy;
+    
+    private bool _needReload = false;
 
-    private void Start()
+    private void Update()
     {
-        _animator = GetComponent<Animator>();
+        if(_needReload)
+        {
+            transform.DORotate(new Vector3(0, 0, 360f), 1f, RotateMode.FastBeyond360);
+        }
     }
 
     private void OnEnable()
@@ -32,9 +36,10 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         _point.IsBusy = true;
-        _animator.Play("ReloadGun");
+        _needReload = true;
         yield return new WaitForSeconds(_timeForGunBusy);
 
         _point.IsBusy = false;
+        _needReload = false;
     }
 }

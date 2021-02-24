@@ -9,8 +9,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _damage;
     [SerializeField]private float _speed;
-    [SerializeField] private float _dieScaleMin;
-    [SerializeField] private float _dieScaleMax;
     [SerializeField] private float _dieAlpha;
     [SerializeField] private ParticleSystem _particleSystem;
     
@@ -20,14 +18,6 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PolygonCollider2D _collider;
     private Color _dieColor = new Color(Color.gray.r, Color.gray.g, Color.gray.b, 0.2f);
-
-    private void OnValidate()
-    {
-        if (_dieScaleMax < _dieScaleMin)
-        {
-            _dieScaleMax = _dieScaleMin;
-        }
-    }
 
     private void Awake()
     {
@@ -44,8 +34,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         _rigidbody2D.velocity = _direction * _speed;
-        var direction = _player.transform.position;
-        
+        var direction = _player.transform.position;    
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,11 +58,8 @@ public class Enemy : MonoBehaviour
 
     private void DieByInk()
     {
-        float dieScale = Random.Range(_dieScaleMin, _dieScaleMax);
-
         _particleSystem.Play();
         _spriteRenderer.DOColor(_dieColor, 1f);
-        transform.DOScale(dieScale, 1f);
         _direction = Vector2.up;
         _collider.enabled = false;
     }

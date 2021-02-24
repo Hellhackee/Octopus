@@ -35,6 +35,7 @@ public class Attack : MonoBehaviour
 
         if (_elapsedTimeForReload >= _timeToReload)
         {
+            _elapsedTimeForReload = 0f;
             AttackPoint point = _points[Random.Range(0, _points.Length)];
             point.ReloadGun();
         }
