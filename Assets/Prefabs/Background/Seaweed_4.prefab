@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153532826713832844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -0.12, y: 0.25, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1153532828119383519}
@@ -44,8 +44,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.37254906, b: 0.9734895, a: 1}
-  m_Intensity: 10.06
-  m_Range: 2.99
+  m_Intensity: 5
+  m_Range: 1.2
   m_SpotAngle: 74.4
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ad92fb026446a4fa9b87c0e4ee3d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minIntensity: 7
-  _maxIntensity: 9
-  _loopTime: 2
+  _minIntensity: 10
+  _maxIntensity: 15
+  _loopTime: 2.5
 --- !u!1 &1153532827870948724
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.1
       minScalar: 0.05
       maxCurve:
         serializedVersion: 2

@@ -47,20 +47,18 @@ public class Enemy : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player))
         {
             player.GetDamage(_damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     public void SetDirection(Vector3 direction)
     {
-        _direction = (direction - transform.position).normalized;
+        _direction = (direction - transform.position).normalized; 
     }
 
     private void DieByInk()
     {
         _particleSystem.Play();
-        _spriteRenderer.DOColor(_dieColor, 1f);
-        _direction = Vector2.up;
-        _collider.enabled = false;
+        gameObject.SetActive(false);
     }
 }
