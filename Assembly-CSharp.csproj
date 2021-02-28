@@ -65,7 +65,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Background\LightIntensityAnim.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
-    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Fish\EnemyFish.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Fish\GlowPoint.cs" />
     <Compile Include="Assets\Scripts\Enemy\Spawner.cs" />
     <Compile Include="Assets\Scripts\Octopus\Attack.cs" />
     <Compile Include="Assets\Scripts\Octopus\AttackPoint.cs" />

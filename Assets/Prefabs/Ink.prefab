@@ -103,9 +103,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00089330226, y: 0.0010332465}
+  m_Offset: {x: 0.001955524, y: 0.0010332167}
   serializedVersion: 2
-  m_Radius: 0.0900098
+  m_Radius: 0.052820385
 --- !u!50 &-3679726387124970993
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dbcb65420502fa40af7ef78adaaddbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 6
 --- !u!1 &6542369666636571751
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +805,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 15.33
+    angle: 14.28
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
@@ -891,7 +891,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.16
+      value: 0.05
       mode: 0
       spread: 0
       speed:
