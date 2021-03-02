@@ -15,12 +15,13 @@ public class GlowPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        _enemyFish.OnEnemyDied += OnEnemyDied;
+        _enemyFish.EnemyDied += OnEnemyDied;
     }
 
     private void OnDisable()
     {
-        _enemyFish.OnEnemyDied -= OnEnemyDied;
+        _light.enabled = true;
+        _enemyFish.EnemyDied -= OnEnemyDied;
         _spriteRenderer.DOFade(1f, 0f);
     }
 
@@ -34,5 +35,6 @@ public class GlowPoint : MonoBehaviour
     private void OnEnemyDied(float dyingTime, float alpha)
     {
         _spriteRenderer.DOFade(alpha, dyingTime);
+        _light.enabled = false;
     }
 }

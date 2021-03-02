@@ -5,6 +5,11 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    public event UnityAction PlayerDied;
+    public event UnityAction<int> ScoreChanged;
+    public event UnityAction<int> HealthChanged;
+    public Vector3 Distance => transform.position;
+
     [SerializeField] private float _maxX;
     [SerializeField] private float _minX;
     [SerializeField] private float _minY;
@@ -12,8 +17,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private int _health;
 
-    public event UnityAction OnPlayerDied;
-    public Vector3 Distance => transform.position;
+    private int _score;
+
+    private void Start()
+    {
+        HealthChanged?.Invoke(_health);
+    }
 
     private void Update()
     {
@@ -39,10 +48,11 @@ public class Player : MonoBehaviour
     public void GetDamage(int damage)
     {
         _health -= damage;
+        HealthChanged?.Invoke(_health);
         
         if (_health <= 0)
         {
-            OnPlayerDied?.Invoke();
+            PlayerDied?.Invoke();
             Die();
         }
     }
@@ -50,5 +60,11 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Destroy(this);
+    }
+
+    public void AddScore(int value)
+    {
+        _score += value;
+        ScoreChanged?.Invoke(_score);
     }
 }

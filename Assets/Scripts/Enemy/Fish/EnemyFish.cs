@@ -8,13 +8,14 @@ using UnityEngine.Events;
 public class EnemyFish : MonoBehaviour
 {
     public bool IsDead = false;
-    public event UnityAction<float, float> OnEnemyDied;
+    public event UnityAction<float, float> EnemyDied;
 
     [SerializeField] private int _damage;
     [SerializeField]private float _speed;
     [SerializeField] private float _dieAlpha;
     [SerializeField] private float _diyngTime;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private int _reward;
     
     private Player _player;
     private Vector3 _direction;
@@ -71,9 +72,10 @@ public class EnemyFish : MonoBehaviour
 
     private void DieByInk()
     {
+        _player.AddScore(_reward);
         _particleSystem.Play();
         IsDead = true;
-        OnEnemyDied?.Invoke(_diyngTime, _dieAlpha);
+        EnemyDied?.Invoke(_diyngTime, _dieAlpha);
     }
 
     private void SetColorA()
