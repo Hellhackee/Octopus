@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private EnemyFish _enemyPrefab;
+    [SerializeField] private EnemyFish[] _enemyPrefabs;
     [SerializeField] private float _timeBetweenSpawn;
     [SerializeField] private float _capacity;
     [SerializeField] private float _maxX;
@@ -28,6 +28,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        
         _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime >= _timeBetweenSpawn)
@@ -69,7 +70,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < _capacity; i++)
         {
-            EnemyFish enemy = Instantiate(_enemyPrefab, transform);
+            EnemyFish enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Length)], transform);
             enemy.gameObject.SetActive(false);
             _enemies.Add(enemy);
         }

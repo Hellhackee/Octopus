@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Animator), typeof(PolygonCollider2D))]
 public class Player : MonoBehaviour
 {
-    public event UnityAction PlayerDied;
+    public event UnityAction Died;
     public event UnityAction<int> ScoreChanged;
     public event UnityAction<int> HealthChanged;
     public Vector3 Distance => transform.position;
+    public int Score => _score;
 
     [SerializeField] private float _maxX;
     [SerializeField] private float _minX;
@@ -16,11 +18,19 @@ public class Player : MonoBehaviour
     [SerializeField] private float _maxY;
     [SerializeField] private float _speed;
     [SerializeField] private int _health;
+    [SerializeField] private int _maxHealth;
+    [SerializeField] private GameObject _diePanel;
+    [SerializeField] private Prefs _prefs; 
 
     private int _score;
+    private Animator _animator;
+    private PolygonCollider2D _collider;
 
     private void Start()
     {
+        _animator = GetComponent<Animator>();
+        _collider = GetComponent<PolygonCollider2D>();
+        _collider.enabled = true;
         HealthChanged?.Invoke(_health);
     }
 
@@ -48,18 +58,29 @@ public class Player : MonoBehaviour
     public void GetDamage(int damage)
     {
         _health -= damage;
+        _animator.SetTrigger("Damaged");
         HealthChanged?.Invoke(_health);
         
         if (_health <= 0)
-        {
-            PlayerDied?.Invoke();
             Die();
+    }
+
+    public void AddHealth(int value)
+    {
+        if (_health < _maxHealth)
+        {
+            _health += value;
+            HealthChanged?.Invoke(_health);
         }
     }
 
     private void Die()
     {
-        Destroy(this);
+        _collider.enabled = false;
+        _animator.Play("Die");
+        _diePanel.SetActive(true);
+        Died?.Invoke();
+        _prefs.ChangeMoney(_score);
     }
 
     public void AddScore(int value)

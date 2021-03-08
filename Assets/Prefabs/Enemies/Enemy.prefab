@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944025789865527835}
   - component: {fileID: 6742097532717416265}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5199,7 +5199,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0.23750067, a: 0}
   - {r: 1, g: 0, b: 0.66274023, a: 0}
   - {r: 0.040236473, g: 0, b: 1, a: 0}
-  _maxGlowIntensity: 20
+  _maxGlowIntensity: 15
 --- !u!1 &6306378381747935286
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Background\LightIntensityAnim.cs" />
+    <Compile Include="Assets\Scripts\Bonuses\Bonus.cs" />
+    <Compile Include="Assets\Scripts\Bonuses\BonusSpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Bonuses\BonusSpawner.cs" />
+    <Compile Include="Assets\Scripts\Bonuses\Health.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Enemy\Fish\EnemyFish.cs" />
     <Compile Include="Assets\Scripts\Enemy\Fish\GlowPoint.cs" />
@@ -73,6 +77,8 @@
     <Compile Include="Assets\Scripts\Octopus\Gun.cs" />
     <Compile Include="Assets\Scripts\Octopus\Ink.cs" />
     <Compile Include="Assets\Scripts\Octopus\Player.cs" />
+    <Compile Include="Assets\Scripts\Prefs.cs" />
+    <Compile Include="Assets\Scripts\UI\DiePanel.cs" />
     <Compile Include="Assets\Scripts\UI\Health\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\Health\Heart.cs" />
     <Compile Include="Assets\Scripts\UI\Score.cs" />
