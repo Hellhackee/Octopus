@@ -6,7 +6,7 @@ using DG.Tweening;
 [RequireComponent(typeof(SpriteRenderer))]
 public class GlowPoint : MonoBehaviour
 {
-    [SerializeField] private EnemyFish _enemyFish;
+    [SerializeField] private Enemy _enemyFish;
     [SerializeField] private Light _light;
     [SerializeField] private Color[] _lightColors;
     [SerializeField] private float _maxGlowIntensity;

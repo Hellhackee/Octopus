@@ -21,9 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics", "Unity.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.SpriteShape.Runtime", "Unity.2D.SpriteShape.Runtime.csproj", "{5F90BFBC-EC60-E50F-B30C-CB0E7427E60A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Core.Runtime.csproj", "{2E3BCD01-01F1-A686-28A6-56FFAE37381E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{0CCCEF86-7BDB-17D5-E491-A5BCE3E8E1B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Core.Runtime.csproj", "{2E3BCD01-01F1-A686-28A6-56FFAE37381E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{45E70F14-177A-4BA8-9479-D6CC4F67A1FB}"
 EndProject
@@ -133,14 +133,14 @@ Global
 		{5F90BFBC-EC60-E50F-B30C-CB0E7427E60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F90BFBC-EC60-E50F-B30C-CB0E7427E60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F90BFBC-EC60-E50F-B30C-CB0E7427E60A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0CCCEF86-7BDB-17D5-E491-A5BCE3E8E1B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0CCCEF86-7BDB-17D5-E491-A5BCE3E8E1B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CCCEF86-7BDB-17D5-E491-A5BCE3E8E1B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CCCEF86-7BDB-17D5-E491-A5BCE3E8E1B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3BCD01-01F1-A686-28A6-56FFAE37381E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45E70F14-177A-4BA8-9479-D6CC4F67A1FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45E70F14-177A-4BA8-9479-D6CC4F67A1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E70F14-177A-4BA8-9479-D6CC4F67A1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU

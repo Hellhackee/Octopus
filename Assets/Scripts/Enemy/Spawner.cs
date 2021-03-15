@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private EnemyFish[] _enemyPrefabs;
+    [SerializeField] private Enemy[] _enemyPrefabs;
     [SerializeField] private float _timeBetweenSpawn;
     [SerializeField] private float _capacity;
     [SerializeField] private float _maxX;
@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
 
     private float _elapsedTime = 0f;
     private List<Vector3> _positionsToSpawn = new List<Vector3>();
-    private List<EnemyFish> _enemies = new List<EnemyFish>();
+    private List<Enemy> _enemies = new List<Enemy>();
 
     private void Start()
     {
@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
 
             Vector3 position = _positionsToSpawn[Random.Range(0, _positionsToSpawn.Count)];
 
-            if (TryGetEnemy(out EnemyFish enemy))
+            if (TryGetEnemy(out Enemy enemy))
             {
                 enemy.transform.position = position;
                 enemy.SetDirection(_player.Distance);
@@ -70,13 +70,13 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < _capacity; i++)
         {
-            EnemyFish enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Length)], transform);
+            Enemy enemy = Instantiate(_enemyPrefabs[Random.Range(0, _enemyPrefabs.Length)], transform);
             enemy.gameObject.SetActive(false);
             _enemies.Add(enemy);
         }
     }
 
-    private bool TryGetEnemy(out EnemyFish enemy)
+    private bool TryGetEnemy(out Enemy enemy)
     {
         enemy = _enemies.FirstOrDefault(e => e.gameObject.activeSelf == false);
         return enemy != null;

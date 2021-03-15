@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
     [SerializeField] private GameObject _diePanel;
-    [SerializeField] private Prefs _prefs; 
+    [SerializeField] private Stats _stats; 
 
     private int _score;
     private Animator _animator;
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
         _animator.Play("Die");
         _diePanel.SetActive(true);
         Died?.Invoke();
-        _prefs.ChangeMoney(_score);
+        _stats.ChangeMoney(_score);
     }
 
     public void AddScore(int value)

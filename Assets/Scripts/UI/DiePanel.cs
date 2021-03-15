@@ -10,7 +10,8 @@ public class DiePanel : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private Text _score;
     [SerializeField] private Text _maxScore;
-    [SerializeField] private Prefs _prefs;
+    [SerializeField] private Stats _prefs;
+    [SerializeField] private ProgressBar _progressBar;
 
     private Animator _animator;
     private Vector3 _startPosition;
@@ -26,15 +27,25 @@ public class DiePanel : MonoBehaviour
     private void OnEnable()
     {
         _player.Died += OnPlayerDied;
+        _progressBar.LevelFinished += OnLevelFinished;
     }
 
     private void OnDisable()
     {
         _player.Died -= OnPlayerDied;
+        _progressBar.LevelFinished -= OnLevelFinished;
         transform.position = _startPosition;
     }
 
     private void OnPlayerDied()
+    {
+        _animator.Play("DiePanel");
+        _score.text = _player.Score.ToString();
+        string level = "Level" + (_currentLevel + 1).ToString();
+        _maxScore.text = _prefs.GetMaxLevelScore(level, _player.Score).ToString();
+    }
+
+    private void OnLevelFinished()
     {
         _animator.Play("DiePanel");
         _score.text = _player.Score.ToString();
