@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public event UnityAction Died;
     public event UnityAction<int> ScoreChanged;
     public event UnityAction<int> HealthChanged;
+    public event UnityAction Disabled;
     public Vector3 Distance => transform.position;
     public int Score => _score;
 
@@ -19,7 +20,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private int _health;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private GameObject _diePanel;
     [SerializeField] private Stats _stats; 
 
     private int _score;
@@ -58,11 +58,16 @@ public class Player : MonoBehaviour
     public void GetDamage(int damage)
     {
         _health -= damage;
-        _animator.SetTrigger("Damaged");
         HealthChanged?.Invoke(_health);
-        
+
         if (_health <= 0)
-            Die();
+        {
+            Died?.Invoke();
+        }
+        else
+        {
+            _animator.SetTrigger("Damaged");
+        }
     }
 
     public void AddHealth(int value)
@@ -74,13 +79,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Disable(string animationName)
     {
         _collider.enabled = false;
-        _animator.Play("Die");
-        _diePanel.SetActive(true);
-        Died?.Invoke();
+        _animator.Play(animationName);
         _stats.ChangeMoney(_score);
+        Disabled?.Invoke();
     }
 
     public void AddScore(int value)

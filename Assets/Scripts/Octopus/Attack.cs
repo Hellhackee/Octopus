@@ -10,14 +10,15 @@ public class Attack : MonoBehaviour
     [SerializeField] private Transform _container;
     [SerializeField] private float _timeToReload;
     [SerializeField] private Player _player;
+    [SerializeField] private ProgressBar _progressBar;
 
-    private bool _playerIsDead = false;
+    private bool _playerDisabled = false;    
     private float _elapsedTime = 0f;
     private float _elapsedTimeForReload = 0f;
 
     private void Update()
     {
-        if (_playerIsDead == false)
+        if (_playerDisabled == false)
         {
             _elapsedTime += Time.deltaTime;
             _elapsedTimeForReload += Time.deltaTime;
@@ -48,16 +49,16 @@ public class Attack : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.Died += OnPlayerDied;
+        _player.Disabled += OnPlayerDisabled;
     }
 
     private void OnDisable()
     {
-        _player.Died -= OnPlayerDied;
+        _player.Disabled -= OnPlayerDisabled;
     }
 
-    private void OnPlayerDied()
+    private void OnPlayerDisabled()
     {
-        _playerIsDead = true;
+        _playerDisabled = true;
     }
 }

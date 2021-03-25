@@ -108,11 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba1200d1580ed34184f90940c307d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _challenges:
-  - {fileID: 11400000, guid: 45597ab11b5a92b4081f554c02d43967, type: 2}
-  - {fileID: 11400000, guid: 68fbd21f471f2b04dbea807c50bfc578, type: 2}
-  - {fileID: 11400000, guid: 576e35c00d572f54492e72b610622986, type: 2}
-  - {fileID: 11400000, guid: c9f10af187021e648b98569cf12f775c, type: 2}
   _text: {fileID: 1820091643987644319}
   _challengeDoneColor: {r: 0.9469855, g: 1, b: 0, a: 0}
 --- !u!1 &1820091643987644313
@@ -206,8 +201,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
