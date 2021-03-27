@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _minY;
     [SerializeField] private int _pointsOnSide;
     [SerializeField] private Player _player;
+    [SerializeField] private ProgressBar _progressBar;
 
     private float _elapsedTime = 0f;
     private List<Vector3> _positionsToSpawn = new List<Vector3>();
@@ -28,10 +29,11 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        
+        float timeBetweenSpawn = _timeBetweenSpawn - _progressBar.GetValue() / 2f;
+
         _elapsedTime += Time.deltaTime;
 
-        if (_elapsedTime >= _timeBetweenSpawn)
+        if (_elapsedTime >= timeBetweenSpawn)
         {
             _elapsedTime = 0;
 

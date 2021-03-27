@@ -16,4 +16,9 @@ public class ProgressBar : MonoBehaviour
     {
         _slider.DOValue(1f, _levelTime).SetEase(Ease.Linear).OnComplete(() => LevelFinished?.Invoke());
     }
+
+    public float GetValue()
+    {
+        return _slider.value;
+    }
 }

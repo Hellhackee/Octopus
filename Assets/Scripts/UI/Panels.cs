@@ -23,15 +23,15 @@ public class Panels : MonoBehaviour
 
     private void OnEnemyDied()
     {
-        _diePanel.gameObject.SetActive(true);
         _player.Disable("Die");
         _progressBar.LevelFinished -= OnLevelFinished;
+        _diePanel.gameObject.SetActive(true);
     }
 
     private void OnLevelFinished()
     {
-        _player.Died -= OnEnemyDied;
         _player.Disable("Idle");
+        _player.Died -= OnEnemyDied;
         _finishPanel.gameObject.SetActive(true);
     }
 }

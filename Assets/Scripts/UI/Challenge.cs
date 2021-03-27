@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Image))]
 public class Challenge : MonoBehaviour
 {
     
-    [SerializeField] private TMP_Text _text;
+    [SerializeField] private Text _text;
     [SerializeField] private Color _challengeDoneColor;
+    [SerializeField] private Sprite _winSprite;
     
     private ChallengeSO _chosenChallenge;
     private int _award;
-    private Animator _animator;
+    private Image _image;
  
     private void Start()
     {
-        _animator = GetComponent<Animator>();        
+        _image = GetComponent<Image>();
     }
 
     public void Init(ChallengeSO challenge)
@@ -33,7 +35,7 @@ public class Challenge : MonoBehaviour
         if (_award > 0)
         {
             _text.color = _challengeDoneColor;
-            _animator.Play("ChallengeDone");
+            _image.sprite = _winSprite;
         }
 
         return _award;

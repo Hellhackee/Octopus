@@ -46,7 +46,7 @@ public class ChallengeContainer : MonoBehaviour
 
         foreach (Challenge challenge in _chosenChallenges)
         {
-            award += challenge.GetAward(healthTaken, score, enemiesKilled, enemiesDodged);
+            award += challenge.GetAward(enemiesKilled, enemiesDodged, healthTaken, score);
         }
 
         _stats.ChangeMoney(award);

@@ -14,6 +14,7 @@ public class EndPanel : MonoBehaviour
     [SerializeField] private ParticleSystem _finishParticle;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private ChallengeContainer _challengeContainer;
+    [SerializeField] private Destroyer _destroyer;
 
     private Animator _animator;
     private Vector3 _startPosition;
@@ -33,6 +34,7 @@ public class EndPanel : MonoBehaviour
         _player.gameObject.SetActive(false);
         _spawner.gameObject.SetActive(false);
         _score.text = _player.Score.ToString();
+
         string level = "Level" + (_currentLevel + 1).ToString();
         _maxScore.text = _prefs.GetMaxLevelScore(level, _player.Score).ToString();
 

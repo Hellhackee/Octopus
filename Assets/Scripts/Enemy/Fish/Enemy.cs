@@ -56,14 +56,16 @@ public class Enemy : MonoBehaviour
         {
             if (collision.GetComponent<Ink>())
             {
-                DieByInk();
+                _stats.EnemyKilled();
+                _player.AddScore(_reward);
+                Die();
                 Destroy(collision.gameObject);
             }
 
             if (collision.TryGetComponent<Player>(out Player player))
             {
                 player.GetDamage(_damage);
-                gameObject.SetActive(false);
+                Die();
             }
         }
     }
@@ -73,10 +75,8 @@ public class Enemy : MonoBehaviour
         _direction = (direction - transform.position).normalized; 
     }
 
-    private void DieByInk()
+    private void Die()
     {
-        _stats.EnemyKilled();
-        _player.AddScore(_reward);
         _particleSystem.Play();
         IsDead = true;
         EnemyDied?.Invoke(_diyngTime, _dieAlpha);

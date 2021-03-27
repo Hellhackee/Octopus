@@ -12,9 +12,9 @@ public enum ChallengeType
 public class ChallengeSO : ScriptableObject
 {
     [SerializeField] private string _name;
-    [SerializeField] private int _moneyAward;
     [SerializeField] private ChallengeType _type;
 
+    private int _moneyAward = 100;
     public string Name => _name;
 
     public int GetAward(int healthTaken,  int score, int enemiesKilled, int enemiesDodged)
@@ -31,7 +31,7 @@ public class ChallengeSO : ScriptableObject
                 break;
             case ChallengeType.kill100:
                 
-                if (enemiesKilled >= 100)
+                if (enemiesKilled >= 10)
                     award = _moneyAward;
 
                 break;
